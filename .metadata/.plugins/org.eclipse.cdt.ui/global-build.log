@@ -1,0 +1,1020 @@
+10:42:19 **** Build of configuration Release for project 3002proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F407xx -c -I"C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc" -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'motor':
+../Core/Src/main.c:983:8: warning: implicit declaration of function 'strncmp' [-Wimplicit-function-declaration]
+  983 |    if (strncmp(aRxBuffer, "R",1) == 0){
+      |        ^~~~~~~
+../Core/Src/main.c:983:16: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+  983 |    if (strncmp(aRxBuffer, "R",1) == 0){
+      |                ^~~~~~~~~
+      |                |
+      |                uint8_t * {aka unsigned char *}
+../Core/Src/main.c:983:16: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:983:31: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  983 |    if (strncmp(aRxBuffer, "R",1) == 0){
+      |                               ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:986:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+  986 |     OLED_ShowString(10,50,"R\0");
+      |                           ^~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:988:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  988 |     sprintf(opop,"%d\0", magnitude);
+      |     ^~~~~~~
+../Core/Src/main.c:988:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:26:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   25 | #include "oled.h"
+  +++ |+#include <stdio.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:988:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  988 |     sprintf(opop,"%d\0", magnitude);
+      |             ^~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+../Core/Src/main.c:988:13: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:988:21: warning: embedded '\0' in format [-Wformat-contains-nul]
+  988 |     sprintf(opop,"%d\0", magnitude);
+      |                     ^~
+../Core/Src/main.c:992:5: warning: implicit declaration of function 'Right' [-Wimplicit-function-declaration]
+  992 |     Right(magnitude*-1,defaultPower);
+      |     ^~~~~
+../Core/Src/main.c:995:5: warning: implicit declaration of function 'reverse1' [-Wimplicit-function-declaration]
+  995 |     reverse1(190.00,defaultPower);
+      |     ^~~~~~~~
+../Core/Src/main.c:998:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  998 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1032:21: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1032 |    else if (strncmp(aRxBuffer, "E",1) == 0){
+      |                     ^~~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1032:21: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1032:36: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1032 |    else if (strncmp(aRxBuffer, "E",1) == 0){
+      |                                    ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1035:29: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1035 |       OLED_ShowString(10,50,"R\0");
+      |                             ^~~~~
+      |                             |
+      |                             char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1037:7: warning: incompatible implicit declaration of built-in function 'sprintf'
+ 1037 |       sprintf(opop,"%d\0", magnitude);
+      |       ^~~~~~~
+../Core/Src/main.c:1037:7: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:1037:15: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 1037 |       sprintf(opop,"%d\0", magnitude);
+      |               ^~~~
+      |               |
+      |               uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1037:15: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1037:23: warning: embedded '\0' in format [-Wformat-contains-nul]
+ 1037 |       sprintf(opop,"%d\0", magnitude);
+      |                       ^~
+../Core/Src/main.c:1040:6: warning: implicit declaration of function 'forward1' [-Wimplicit-function-declaration]
+ 1040 |      forward1(190.00,defaultPower);
+      |      ^~~~~~~~
+../Core/Src/main.c:1043:6: warning: implicit declaration of function 'back_Right' [-Wimplicit-function-declaration]
+ 1043 |      back_Right(magnitude,defaultPower);
+      |      ^~~~~~~~~~
+../Core/Src/main.c:1049:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1049 |       HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                                 ^~~~~
+      |                                 |
+      |                                 char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1050:24: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1050 |      }else if (strncmp(aRxBuffer, "L",1) == 0){
+      |                        ^~~~~~~~~
+      |                        |
+      |                        uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1050:24: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1050:39: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1050 |      }else if (strncmp(aRxBuffer, "L",1) == 0){
+      |                                       ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1051:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1051 |     OLED_ShowString(10,50,"L\0");
+      |                           ^~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1053:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+ 1053 |     sprintf(opop,"%d\0", magnitude);
+      |     ^~~~~~~
+../Core/Src/main.c:1053:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:1053:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 1053 |     sprintf(opop,"%d\0", magnitude);
+      |             ^~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1053:13: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1053:21: warning: embedded '\0' in format [-Wformat-contains-nul]
+ 1053 |     sprintf(opop,"%d\0", magnitude);
+      |                     ^~
+../Core/Src/main.c:1058:5: warning: implicit declaration of function 'Left' [-Wimplicit-function-declaration]
+ 1058 |     Left(magnitude,defaultPower);
+      |     ^~~~
+../Core/Src/main.c:1064:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1064 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1065:22: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1065 |    }else if (strncmp(aRxBuffer, "K",1) == 0){
+      |                      ^~~~~~~~~
+      |                      |
+      |                      uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1065:22: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1065:37: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1065 |    }else if (strncmp(aRxBuffer, "K",1) == 0){
+      |                                     ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1066:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1066 |     OLED_ShowString(10,50,"L\0");
+      |                           ^~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1068:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+ 1068 |     sprintf(opop,"%d\0", magnitude);
+      |     ^~~~~~~
+../Core/Src/main.c:1068:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:1068:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 1068 |     sprintf(opop,"%d\0", magnitude);
+      |             ^~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1068:13: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1068:21: warning: embedded '\0' in format [-Wformat-contains-nul]
+ 1068 |     sprintf(opop,"%d\0", magnitude);
+      |                     ^~
+../Core/Src/main.c:1075:5: warning: implicit declaration of function 'back_Left' [-Wimplicit-function-declaration]
+ 1075 |     back_Left(magnitude*-1,defaultPower);
+      |     ^~~~~~~~~
+../Core/Src/main.c:1082:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1082 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1094:21: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1094 |    }else if(strncmp(aRxBuffer,"F",1)== 0){ //Forward
+      |                     ^~~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1094:21: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1094:35: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1094 |    }else if(strncmp(aRxBuffer,"F",1)== 0){ //Forward
+      |                                   ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1097:5: warning: implicit declaration of function 'forward' [-Wimplicit-function-declaration]
+ 1097 |     forward((double)magnitude,defaultPower);
+      |     ^~~~~~~
+../Core/Src/main.c:1099:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1099 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1100:21: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1100 |    }else if(strncmp(aRxBuffer,"Z",1)== 0){ //Reverse
+      |                     ^~~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1100:21: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1100:35: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1100 |    }else if(strncmp(aRxBuffer,"Z",1)== 0){ //Reverse
+      |                                   ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1103:5: warning: implicit declaration of function 'reverse' [-Wimplicit-function-declaration]
+ 1103 |     reverse((double)magnitude,defaultPower);
+      |     ^~~~~~~
+../Core/Src/main.c:1105:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1105 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1106:13: warning: implicit declaration of function 'strcmp' [-Wimplicit-function-declaration]
+ 1106 |    }else if(strcmp(aRxBuffer, "C111") == 0){ //Center Servo
+      |             ^~~~~~
+../Core/Src/main.c:1106:20: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+ 1106 |    }else if(strcmp(aRxBuffer, "C111") == 0){ //Center Servo
+      |                    ^~~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1106:20: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1107:5: warning: implicit declaration of function 'center' [-Wimplicit-function-declaration]
+ 1107 |     center();
+      |     ^~~~~~
+../Core/Src/main.c:1110:19: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+ 1110 |    else if(strcmp(aRxBuffer, "U111") == 0){ //first obstacle Left
+      |                   ^~~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1110:19: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1111:5: warning: implicit declaration of function 'fullLeft' [-Wimplicit-function-declaration]
+ 1111 |     fullLeft();
+      |     ^~~~~~~~
+../Core/Src/main.c:1115:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1115 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1116:21: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1116 |    }else if(strncmp(aRxBuffer, "T",1) == 0){ //second obstacle left
+      |                     ^~~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1116:21: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1116:36: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1116 |    }else if(strncmp(aRxBuffer, "T",1) == 0){ //second obstacle left
+      |                                    ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1118:5: warning: implicit declaration of function 'halfLeft' [-Wimplicit-function-declaration]
+ 1118 |     halfLeft((double)magnitude);
+      |     ^~~~~~~~
+../Core/Src/main.c:1120:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1120 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1121:20: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+ 1121 |    }else if(strcmp(aRxBuffer, "I111") == 0){ //first obstacle right
+      |                    ^~~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1121:20: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1123:5: warning: implicit declaration of function 'fullRight' [-Wimplicit-function-declaration]
+ 1123 |     fullRight();
+      |     ^~~~~~~~~
+../Core/Src/main.c:1126:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1126 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1127:21: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1127 |    }else if(strncmp(aRxBuffer, "Y",1) == 0){ //second obstacle right
+      |                     ^~~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1127:21: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1127:36: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1127 |    }else if(strncmp(aRxBuffer, "Y",1) == 0){ //second obstacle right
+      |                                    ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c:1129:5: warning: implicit declaration of function 'halfRight' [-Wimplicit-function-declaration]
+ 1129 |     halfRight((double)magnitude);
+      |     ^~~~~~~~~
+../Core/Src/main.c:1131:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1131 |     HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                               ^~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1132:20: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+ 1132 |    }else if(strcmp(aRxBuffer, "TTTT") == 0){
+      |                    ^~~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1132:20: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1136:6: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+ 1136 |      printf("Hello");
+      |      ^~~~~~
+../Core/Src/main.c:1136:6: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/main.c:1136:6: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:1138:5: warning: implicit declaration of function 'stop' [-Wimplicit-function-declaration]
+ 1138 |     stop();
+      |     ^~~~
+../Core/Src/main.c:1142:6: warning: incompatible implicit declaration of built-in function 'printf'
+ 1142 |      printf("Hello");
+      |      ^~~~~~
+../Core/Src/main.c:1142:6: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:1145:20: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+ 1145 |    }else if(strcmp(aRxBuffer, "STOP") == 0){
+      |                    ^~~~~~~~~
+      |                    |
+      |                    uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1145:20: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1146:5: warning: implicit declaration of function 'stop1' [-Wimplicit-function-declaration]
+ 1146 |     stop1();
+      |     ^~~~~
+../Core/Src/main.c:1178:4: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+ 1178 |    memset(aRxBuffer, 0, sizeof(aRxBuffer));
+      |    ^~~~~~
+../Core/Src/main.c:1178:4: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'memset'
+   25 | #include "oled.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:942:7: warning: variable 'direction' set but not used [-Wunused-but-set-variable]
+  942 |  char direction;
+      |       ^~~~~~~~~
+../Core/Src/main.c:938:11: warning: unused variable 'pwnVal' [-Wunused-variable]
+  938 |  uint16_t pwnVal = 0;
+      |           ^~~~~~
+../Core/Src/main.c: In function 'encoder_task':
+../Core/Src/main.c:1292:8: warning: incompatible implicit declaration of built-in function 'sprintf'
+ 1292 |        sprintf(disA,"DisA:%5d",total_distanceA);
+      |        ^~~~~~~
+../Core/Src/main.c:1292:8: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:1292:16: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 1292 |        sprintf(disA,"DisA:%5d",total_distanceA);
+      |                ^~~~
+      |                |
+      |                uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1292:16: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1293:16: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 1293 |        sprintf(disB,"DisB:%5d",total_distanceB);
+      |                ^~~~
+      |                |
+      |                uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1293:16: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1209:11: warning: unused variable 'dir' [-Wunused-variable]
+ 1209 |  uint16_t dir;
+      |           ^~~
+../Core/Src/main.c:1208:10: warning: unused variable 'hello2' [-Wunused-variable]
+ 1208 |  uint8_t hello2[20];
+      |          ^~~~~~
+../Core/Src/main.c:1207:10: warning: unused variable 'strWheelDist' [-Wunused-variable]
+ 1207 |  uint8_t strWheelDist[20];
+      |          ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'usDelay':
+../Core/Src/main.c:1317:2: warning: incompatible implicit declaration of built-in function 'printf'
+ 1317 |  printf("");
+      |  ^~~~~~
+../Core/Src/main.c:1317:2: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:1317:9: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ 1317 |  printf("");
+      |         ^~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1342:6: warning: conflicting types for 'forward'
+ 1342 | void forward(double target_distance,int pwnVal){
+      |      ^~~~~~~
+../Core/Src/main.c:1097:5: note: previous implicit declaration of 'forward' was here
+ 1097 |     forward((double)magnitude,defaultPower);
+      |     ^~~~~~~
+../Core/Src/main.c: In function 'forward':
+../Core/Src/main.c:1343:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1343 |  HAL_UART_Transmit(&huart3,"F11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1351:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1351 |    OLED_ShowString(10,10,"Start\0");
+      |                          ^~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1356:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+ 1356 |    sprintf(printprint,"DisA:%5d",stopdistance);
+      |    ^~~~~~~
+../Core/Src/main.c:1356:4: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:1356:12: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 1356 |    sprintf(printprint,"DisA:%5d",stopdistance);
+      |            ^~~~~~~~~~
+      |            |
+      |            uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1356:12: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1356:31: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
+ 1356 |    sprintf(printprint,"DisA:%5d",stopdistance);
+      |                             ~~^  ~~~~~~~~~~~~
+      |                               |  |
+      |                               |  double
+      |                               int
+      |                             %5f
+../Core/Src/main.c:1369:8: warning: unused variable 'counter' [-Wunused-variable]
+ 1369 |    int counter = 0;
+      |        ^~~~~~~
+../Core/Src/main.c:1352:12: warning: unused variable 'totaldist' [-Wunused-variable]
+ 1352 |    uint8_t totaldist[20];
+      |            ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1420:6: warning: conflicting types for 'forward1'
+ 1420 | void forward1(double target_distance,int pwnVal){
+      |      ^~~~~~~~
+../Core/Src/main.c:1040:6: note: previous implicit declaration of 'forward1' was here
+ 1040 |      forward1(190.00,defaultPower);
+      |      ^~~~~~~~
+../Core/Src/main.c: In function 'forward1':
+../Core/Src/main.c:1425:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1425 |  HAL_UART_Transmit(&huart3,"F11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1429:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1429 |    OLED_ShowString(10,10,"Start\0");
+      |                          ^~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1445:8: warning: unused variable 'counter' [-Wunused-variable]
+ 1445 |    int counter = 0;
+      |        ^~~~~~~
+../Core/Src/main.c:1430:12: warning: unused variable 'totaldist' [-Wunused-variable]
+ 1430 |    uint8_t totaldist[20];
+      |            ^~~~~~~~~
+../Core/Src/main.c:1428:9: warning: unused variable 'printprint' [-Wunused-variable]
+ 1428 |    char printprint[10];
+      |         ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1486:6: warning: conflicting types for 'stop'
+ 1486 | void stop(int pwn1, int pwn2){
+      |      ^~~~
+../Core/Src/main.c:1138:5: note: previous implicit declaration of 'stop' was here
+ 1138 |     stop();
+      |     ^~~~
+../Core/Src/main.c: In function 'stop':
+../Core/Src/main.c:1487:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1487 |  HAL_UART_Transmit(&huart3,"S00",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1489:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1489 |    OLED_ShowString(10,10,"Stop\0");
+      |                          ^~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1512:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1512 |     OLED_ShowString(10,50,"slow down");
+      |                           ^~~~~~~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1515:6: warning: conflicting types for 'stop1'
+ 1515 | void stop1(){
+      |      ^~~~~
+../Core/Src/main.c:1146:5: note: previous implicit declaration of 'stop1' was here
+ 1146 |     stop1();
+      |     ^~~~~
+../Core/Src/main.c: In function 'stop1':
+../Core/Src/main.c:1516:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1516 |  HAL_UART_Transmit(&huart3,"S00",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1518:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1518 |    OLED_ShowString(10,10,"Stop\0");
+      |                          ^~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1535:6: warning: conflicting types for 'reverse'
+ 1535 | void reverse(double target_distance,int pwnVal){
+      |      ^~~~~~~
+../Core/Src/main.c:1103:5: note: previous implicit declaration of 'reverse' was here
+ 1103 |     reverse((double)magnitude,defaultPower);
+      |     ^~~~~~~
+../Core/Src/main.c: In function 'reverse':
+../Core/Src/main.c:1540:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1540 |  HAL_UART_Transmit(&huart3,"REV",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1542:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1542 |    OLED_ShowString(10,10,"Reverse\0");
+      |                          ^~~~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1584:6: warning: conflicting types for 'reverse1'
+ 1584 | void reverse1(double target_distance,int pwnVal){
+      |      ^~~~~~~~
+../Core/Src/main.c:995:5: note: previous implicit declaration of 'reverse1' was here
+  995 |     reverse1(190.00,defaultPower);
+      |     ^~~~~~~~
+../Core/Src/main.c: In function 'reverse1':
+../Core/Src/main.c:1589:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1589 |  HAL_UART_Transmit(&huart3,"REV",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1591:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1591 |    OLED_ShowString(10,10,"Reverse\0");
+      |                          ^~~~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1634:6: warning: conflicting types for 'center'
+ 1634 | void center(){
+      |      ^~~~~~
+../Core/Src/main.c:1107:5: note: previous implicit declaration of 'center' was here
+ 1107 |     center();
+      |     ^~~~~~
+../Core/Src/main.c: In function 'center':
+../Core/Src/main.c:1635:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1635 |  HAL_UART_Transmit(&huart3,"C11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1637:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1637 |    OLED_ShowString(10,10,"Center\0");
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1639:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1639 |    HAL_UART_Transmit(&huart3,"S11",3,0xFF);
+      |                              ^~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1642:6: warning: conflicting types for 'Left'
+ 1642 | void Left(int target_angle,int pwnVal){
+      |      ^~~~
+../Core/Src/main.c:1058:5: note: previous implicit declaration of 'Left' was here
+ 1058 |     Left(magnitude,defaultPower);
+      |     ^~~~
+../Core/Src/main.c: In function 'Left':
+../Core/Src/main.c:1643:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1643 |  HAL_UART_Transmit(&huart3,"L11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1657:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1657 |    OLED_ShowString(10,10,"Full Left\0");
+      |                          ^~~~~~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1659:18: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1659 |    while(strncmp(aRxBuffer,"L", 1) == 0){
+      |                  ^~~~~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1659:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1659:33: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1659 |    while(strncmp(aRxBuffer,"L", 1) == 0){
+      |                                 ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1671:6: warning: conflicting types for 'back_Left'
+ 1671 | void back_Left(int target_angle,int pwnVal){
+      |      ^~~~~~~~~
+../Core/Src/main.c:1075:5: note: previous implicit declaration of 'back_Left' was here
+ 1075 |     back_Left(magnitude*-1,defaultPower);
+      |     ^~~~~~~~~
+../Core/Src/main.c: In function 'back_Left':
+../Core/Src/main.c:1672:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1672 |  HAL_UART_Transmit(&huart3,"K11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1684:26: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1684 |    OLED_ShowString(10,10,"Full Left\0");
+      |                          ^~~~~~~~~~~~~
+      |                          |
+      |                          char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1686:18: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1686 |    while(strncmp(aRxBuffer,"K", 1) == 0){
+      |                  ^~~~~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1686:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1686:33: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1686 |    while(strncmp(aRxBuffer,"K", 1) == 0){
+      |                                 ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1698:6: warning: conflicting types for 'fullLeft'
+ 1698 | void fullLeft(){
+      |      ^~~~~~~~
+../Core/Src/main.c:1111:5: note: previous implicit declaration of 'fullLeft' was here
+ 1111 |     fullLeft();
+      |     ^~~~~~~~
+../Core/Src/main.c: In function 'fullLeft':
+../Core/Src/main.c:1699:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1699 |  HAL_UART_Transmit(&huart3,"L11",3,0xFF); //rev
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1758:6: warning: conflicting types for 'halfLeft'
+ 1758 | void halfLeft(double target_distance){
+      |      ^~~~~~~~
+../Core/Src/main.c:1118:5: note: previous implicit declaration of 'halfLeft' was here
+ 1118 |     halfLeft((double)magnitude);
+      |     ^~~~~~~~
+../Core/Src/main.c: In function 'halfLeft':
+../Core/Src/main.c:1759:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1759 |  HAL_UART_Transmit(&huart3,"L11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1858:6: warning: conflicting types for 'Right'
+ 1858 | void Right(int target_angle,int pwnVal){
+      |      ^~~~~
+../Core/Src/main.c:992:5: note: previous implicit declaration of 'Right' was here
+  992 |     Right(magnitude*-1,defaultPower);
+      |     ^~~~~
+../Core/Src/main.c: In function 'Right':
+../Core/Src/main.c:1859:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1859 |  HAL_UART_Transmit(&huart3,"R11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1868:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1868 |     OLED_ShowString(10,10,"Right\0");
+      |                           ^~~~~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1871:19: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1871 |     while(strncmp(aRxBuffer,"R",1)==0){
+      |                   ^~~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1871:19: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1871:33: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1871 |     while(strncmp(aRxBuffer,"R",1)==0){
+      |                                 ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1882:6: warning: conflicting types for 'back_Right'
+ 1882 | void back_Right(int target_angle,int pwnVal){
+      |      ^~~~~~~~~~
+../Core/Src/main.c:1043:6: note: previous implicit declaration of 'back_Right' was here
+ 1043 |      back_Right(magnitude,defaultPower);
+      |      ^~~~~~~~~~
+../Core/Src/main.c: In function 'back_Right':
+../Core/Src/main.c:1883:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1883 |  HAL_UART_Transmit(&huart3,"E11",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:1893:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 1893 |     OLED_ShowString(10,10,"Back Right\0");
+      |                           ^~~~~~~~~~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:1896:19: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+ 1896 |     while(strncmp(aRxBuffer,"E",1)==0){
+      |                   ^~~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+../Core/Src/main.c:1896:19: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:1896:33: warning: 'strncmp' argument 3 type is 'int' where 'unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+ 1896 |     while(strncmp(aRxBuffer,"E",1)==0){
+      |                                 ^
+<built-in>: note: built-in 'strncmp' declared here
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1909:6: warning: conflicting types for 'fullRight'
+ 1909 | void fullRight(){
+      |      ^~~~~~~~~
+../Core/Src/main.c:1123:5: note: previous implicit declaration of 'fullRight' was here
+ 1123 |     fullRight();
+      |     ^~~~~~~~~
+../Core/Src/main.c: In function 'fullRight':
+../Core/Src/main.c:1911:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1911 |  HAL_UART_Transmit(&huart3,"R11",3,0xFF); //rev
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:1970:6: warning: conflicting types for 'halfRight'
+ 1970 | void halfRight(double target_distance){
+      |      ^~~~~~~~~
+../Core/Src/main.c:1129:5: note: previous implicit declaration of 'halfRight' was here
+ 1129 |     halfRight((double)magnitude);
+      |     ^~~~~~~~~
+../Core/Src/main.c: In function 'halfRight':
+../Core/Src/main.c:1971:28: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+ 1971 |  HAL_UART_Transmit(&huart3,"R22",3,0xFF);
+      |                            ^~~~~
+      |                            |
+      |                            char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'needToCorrect':
+../Core/Src/main.c:2093:3: warning: incompatible implicit declaration of built-in function 'printf'
+ 2093 |   printf("");
+      |   ^~~~~~
+../Core/Src/main.c:2093:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:2093:10: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ 2093 |   printf("");
+      |          ^~
+../Core/Src/main.c: In function 'show':
+../Core/Src/main.c:2171:6: warning: unused variable 'check' [-Wunused-variable]
+ 2171 |  int check = __HAL_TIM_GET_COUNTER(&htim4);
+      |      ^~~~~
+../Core/Src/main.c:2166:6: warning: unused variable 't2' [-Wunused-variable]
+ 2166 |  int t2 = 0;
+      |      ^~
+../Core/Src/main.c:2165:6: warning: unused variable 't1' [-Wunused-variable]
+ 2165 |  int t1 = 0;
+      |      ^~
+../Core/Src/main.c:2164:6: warning: unused variable 'count' [-Wunused-variable]
+ 2164 |  int count = 0;
+      |      ^~~~~
+../Core/Src/main.c:2163:7: warning: unused variable 'msg' [-Wunused-variable]
+ 2163 |  char msg[20];
+      |       ^~~
+../Core/Src/main.c:2162:11: warning: unused variable 'Adc_value1' [-Wunused-variable]
+ 2162 |  uint16_t Adc_value1;
+      |           ^~~~~~~~~~
+../Core/Src/main.c:2161:11: warning: unused variable 'Adc_value' [-Wunused-variable]
+ 2161 |  uint16_t Adc_value;
+      |           ^~~~~~~~~
+../Core/Src/main.c: In function 'GyroTask':
+../Core/Src/main.c:2316:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+ 2316 |    sprintf(hellox, "angle %5d \0", (int)(total_angle));
+      |    ^~~~~~~
+../Core/Src/main.c:2316:4: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:2316:31: warning: embedded '\0' in format [-Wformat-contains-nul]
+ 2316 |    sprintf(hellox, "angle %5d \0", (int)(total_angle));
+      |                               ^~
+../Core/Src/main.c:2317:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 2317 |    OLED_ShowString(10,30, hellox);
+      |                           ^~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:2318:32: warning: embedded '\0' in format [-Wformat-contains-nul]
+ 2318 |    sprintf(hello1, "GAngle %5d \0", (int)(global_angle));
+      |                                ^~
+../Core/Src/main.c:2319:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+ 2319 |    OLED_ShowString(10,20, hello1);
+      |                           ^~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+C:/Users/weeju/Documents/GitHub/MDP-Group14-Github/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:2249:8: warning: unused variable 'toprint' [-Wunused-variable]
+ 2249 |   char toprint[20];
+      |        ^~~~~~~
+../Core/Src/main.c:2248:7: warning: unused variable 'curangle' [-Wunused-variable]
+ 2248 |   int curangle = 0;
+      |       ^~~~~~~~
+../Core/Src/main.c:2247:7: warning: unused variable 'tickFlag' [-Wunused-variable]
+ 2247 |   int tickFlag = 0;
+      |       ^~~~~~~~
+../Core/Src/main.c:2246:12: warning: unused variable 'totaltick' [-Wunused-variable]
+ 2246 |   uint32_t totaltick = 0.00;
+      |            ^~~~~~~~~
+../Core/Src/main.c:2245:12: warning: unused variable 'tick2' [-Wunused-variable]
+ 2245 |   uint32_t tick2 = HAL_GetTick();
+      |            ^~~~~
+../Core/Src/main.c:2242:11: warning: unused variable 'offset' [-Wunused-variable]
+ 2242 |   int16_t offset = 0;
+      |           ^~~~~~
+../Core/Src/main.c:2241:7: warning: unused variable 'dir' [-Wunused-variable]
+ 2241 |   int dir;
+      |       ^~~
+arm-none-eabi-gcc -o "3002proj.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\weeju\Documents\GitHub\MDP-Group14-Github\MDP\3002proj\STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3002proj.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3002proj.elf
+ 
+arm-none-eabi-size   3002proj.elf 
+arm-none-eabi-objdump -h -S  3002proj.elf  > "3002proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  46204	    500	  22352	  69056	  10dc0	3002proj.elf
+arm-none-eabi-objcopy  -O ihex  3002proj.elf  "3002proj.hex"
+Finished building: default.size.stdout
+ 
+Finished building: 3002proj.hex
+Finished building: 3002proj.list
+ 
+ 

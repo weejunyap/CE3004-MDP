@@ -1,0 +1,126 @@
+00:16:54 **** Incremental Build of configuration Release for project 3002proj ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F407xx -c -I"D:/Ray/School/MDP/3002proj/Peripheral_Driver/Inc" -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:99:24: warning: initializer-string for array of 'unsigned char' is too long
+   99 | uint8_t aRxBuffer[2] = "000";
+      |                        ^~~~~
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:531:11: warning: unused variable 'ch' [-Wunused-variable]
+  531 |   uint8_t ch = 'A';
+      |           ^~
+../Core/Src/main.c: In function 'motor':
+../Core/Src/main.c:582:7: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  582 |    if(strlen(aRxBuffer) != 0)
+      |       ^~~~~~
+../Core/Src/main.c:582:7: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "oled.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:582:14: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  582 |    if(strlen(aRxBuffer) != 0)
+      |              ^~~~~~~~~
+      |              |
+      |              uint8_t * {aka unsigned char *}
+../Core/Src/main.c:582:14: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:583:5: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  583 |     strcpy(motorcmd, &aRxBuffer[0]);
+      |     ^~~~~~
+../Core/Src/main.c:583:5: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:583:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:583:12: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
+  583 |     strcpy(motorcmd, &aRxBuffer[0]);
+      |            ^~~~~~~~
+      |            |
+      |            uint8_t * {aka unsigned char *}
+../Core/Src/main.c:583:12: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:583:22: warning: pointer targets in passing argument 2 of 'strcpy' differ in signedness [-Wpointer-sign]
+  583 |     strcpy(motorcmd, &aRxBuffer[0]);
+      |                      ^~~~~~~~~~~~~
+      |                      |
+      |                      uint8_t * {aka unsigned char *}
+../Core/Src/main.c:583:22: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:584:7: warning: implicit declaration of function 'strcmp' [-Wimplicit-function-declaration]
+  584 |    if(strcmp(aRxBuffer,"F1") == 0){
+      |       ^~~~~~
+../Core/Src/main.c:584:14: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  584 |    if(strcmp(aRxBuffer,"F1") == 0){
+      |              ^~~~~~~~~
+      |              |
+      |              uint8_t * {aka unsigned char *}
+../Core/Src/main.c:584:14: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:585:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+  585 |     OLED_ShowString(10,10,"Start");
+      |                           ^~~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+D:/Ray/School/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c:591:21: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  591 |    }else if (strcmp(aRxBuffer, "F2") == 0){
+      |                     ^~~~~~~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+../Core/Src/main.c:591:21: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:592:27: warning: pointer targets in passing argument 3 of 'OLED_ShowString' differ in signedness [-Wpointer-sign]
+  592 |     OLED_ShowString(10,10,"Stop");
+      |                           ^~~~~~
+      |                           |
+      |                           char *
+In file included from ../Core/Src/main.c:25:
+D:/Ray/School/MDP/3002proj/Peripheral_Driver/Inc/oled.h:49:57: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void OLED_ShowString(uint8_t x,uint8_t y,const uint8_t *p);
+      |                                          ~~~~~~~~~~~~~~~^
+../Core/Src/main.c: In function 'encoder_task':
+../Core/Src/main.c:659:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  659 |   sprintf(hello,"Speed:%5d\0",diff);
+      |   ^~~~~~~
+../Core/Src/main.c:659:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:26:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   25 | #include "oled.h"
+  +++ |+#include <stdio.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:659:11: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  659 |   sprintf(hello,"Speed:%5d\0",diff);
+      |           ^~~~~
+      |           |
+      |           uint8_t * {aka unsigned char *}
+../Core/Src/main.c:659:11: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:659:27: warning: embedded '\0' in format [-Wformat-contains-nul]
+  659 |   sprintf(hello,"Speed:%5d\0",diff);
+      |                           ^~
+../Core/Src/main.c:662:11: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  662 |   sprintf(hello,"Dir:%5d\0",dir);
+      |           ^~~~~
+      |           |
+      |           uint8_t * {aka unsigned char *}
+../Core/Src/main.c:662:11: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:662:25: warning: embedded '\0' in format [-Wformat-contains-nul]
+  662 |   sprintf(hello,"Dir:%5d\0",dir);
+      |                         ^~
+../Core/Src/main.c: In function 'show':
+../Core/Src/main.c:684:10: warning: unused variable 'testing' [-Wunused-variable]
+  684 |  uint8_t testing[20];
+      |          ^~~~~~~
+../Core/Src/main.c:683:10: warning: unused variable 'hello2' [-Wunused-variable]
+  683 |  uint8_t hello2[20] = "Hello World!\0";
+      |          ^~~~~~
+arm-none-eabi-gcc -o "3002proj.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Ray\School\MDP\3002proj\STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3002proj.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3002proj.elf
+ 
+arm-none-eabi-size   3002proj.elf 
+arm-none-eabi-objdump -h -S  3002proj.elf  > "3002proj.list"
+arm-none-eabi-objcopy  -O ihex  3002proj.elf  "3002proj.hex"
+   text	   data	    bss	    dec	    hex	filename
+  22276	    128	  21680	  44084	   ac34	3002proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3002proj.hex
+ 
+Finished building: 3002proj.list
+ 
+
+00:16:55 Build Finished. 0 errors, 22 warnings. (took 865ms)
+

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;3002proj/Core/Src/movement.c&apos;" deleteContents="false" description="Delete resource &apos;3002proj/Core/Src/movement.c&apos;" element1="/3002proj/Core/Src/movement.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1662629118671"/>&#x0A;<refactoring comment="Delete resource &apos;3002proj/Core/Inc/movement.h&apos;" deleteContents="false" description="Delete resource &apos;3002proj/Core/Inc/movement.h&apos;" element1="/3002proj/Core/Inc/movement.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1662629121249"/>
+</session>
